@@ -1,0 +1,47 @@
+using System;
+using System.Linq;
+
+
+class firstLargerThanNeighbours
+{
+    static int[] numbers;
+
+    static bool FirstLargerFound(int index)
+    {
+        bool firstLarger;
+        if (index==0)
+        {
+            firstLarger = numbers[index] > numbers[index + 1];
+        }
+        else if (index==numbers.Length-1)
+        {
+            firstLarger = numbers[index] > numbers[index - 1];
+        }
+        else
+        {
+            firstLarger = numbers[index] > numbers[index + 1] && numbers[index] > numbers[index - 1];
+        }
+        return firstLarger;
+    }
+
+    static void Main()
+    {
+        string input = Console.ReadLine();
+        numbers = input.Split(new char[] {','}).Select(int.Parse).ToArray();
+        bool firstFound = false;
+
+        for (int i = 0; i < numbers.Length; i++)
+        {
+            if (FirstLargerFound(i))
+            {
+                Console.WriteLine(i);
+                firstFound = true;
+                break;
+            }
+        }
+        if (!firstFound)
+        {
+            Console.WriteLine(-1);
+        }
+    }
+}
