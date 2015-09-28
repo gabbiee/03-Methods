@@ -1,0 +1,26 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+class reverseNumber
+{
+    static double GetReversedNumber(double num)
+    {
+        string n = num.ToString();
+        char[] reverse = n.ToCharArray();
+        Array.Reverse(reverse);
+        string reversedNum = new string(reverse);
+        double newNumber = double.Parse(reversedNum);
+        return newNumber;
+
+
+
+    }
+
+    static void Main()
+    {
+        double number = double.Parse(Console.ReadLine());
+        Console.WriteLine(GetReversedNumber(number));
+    }
+}
+
