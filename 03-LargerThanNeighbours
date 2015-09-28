@@ -1,0 +1,31 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+
+class largerThanNeighbours
+{
+    static void Main()
+    {
+        string input = Console.ReadLine();
+        int[] numbers = input.Split(',').Select(int.Parse).ToArray();
+        for (int i = 0; i < numbers.Length; i++)
+        {
+            Console.WriteLine(LargerThanNeighbours(i,numbers));
+        }
+    }
+
+    static bool LargerThanNeighbours(int position,int[] num)
+    {
+        if ((position == 0 && num[position] > num[position + 1]) ||
+            (position == num.Length-1 && num[position] > num[position-1])  ||
+            position!=0&&position!=num.Length-1 &&num[position]>num[position+1]
+            &&num[position]>num[position-1])
+        {
+            return true;
+        }
+        return false;
+    }
+}
+
