@@ -1,0 +1,80 @@
+using System;
+using System.Collections.Generic;
+
+class numberCalculation
+{
+    static void Main()
+    {
+        
+        string input = Console.ReadLine();
+        string[] sArray = input.Split(' ');
+
+        double[] nums = Array.ConvertAll(sArray, double.Parse);
+
+        Console.WriteLine("Max: {0}",GetMax(nums));
+        Console.WriteLine("Min: {0}",GetMin(nums));
+        Console.WriteLine("Average: {0}",GetAverage(nums));
+        Console.WriteLine("Sum: {0}",GetSum(nums));
+        Console.WriteLine("Product: {0}",GetProduct(nums));
+
+    }
+
+    static  double GetMax (double[]nums)
+    {
+        double maxValue = nums[0];
+        for (int i = 1; i < nums.Length; i++)
+        {
+            if (nums[i]>maxValue)
+            {
+                maxValue = nums[i];
+            }
+        }
+        return maxValue;
+
+    }
+
+    static double GetMin (double[] nums)
+    {
+        double minValue = nums[0];
+        for (int i =1; i < nums.Length; i++)
+        {
+         if (nums[i]<minValue)
+                {
+                    minValue = nums[i];
+                }
+        }
+        return minValue;
+    }
+
+    static double GetAverage (double[] nums)
+    {
+        double sum = 0;
+        for (int i = 1; i < nums.Length; i++)
+        {
+            sum += nums[i];
+        }
+        double average = sum / nums.Length;
+        return average;
+    }
+
+    static double GetSum (double[]nums)
+    {
+        double sum = 0;
+        for (int i = 1; i < nums.Length; i++)
+        {
+            sum += nums[i];
+        }
+        return sum;
+    }
+
+    static double GetProduct(double[]nums)
+    {
+        double product = 1;
+        for (int i = 1; i < nums.Length; i++)
+        {
+            product *= nums[i];
+        }
+        return product;
+    }
+}
+
